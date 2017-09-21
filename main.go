@@ -12,6 +12,7 @@ import (
 	"github.com/dailyburn/ratchet/processors"
 
 	procs "github.com/samuelhug/ratchet_processors"
+	"github.com/cwarden/ratchetforce"
 )
 
 const CMDNAME = "etlcmd"
@@ -158,6 +159,11 @@ func runApp(config *Config) error {
 				transform, err = procs.NewJsTransform(script)
 				if err != nil {
 					log.Fatalf("Error initializing JS transform: %s", err)
+				}
+			case "force":
+				transform, err = ratchetforce.NewForceTransform(transformConfig["endpoint"].(string))
+				if err != nil {
+					log.Fatalf("Error initializing Force transform: %s", err)
 				}
 			}
 			processorChain = append(processorChain, transform)
