@@ -11,7 +11,7 @@ import (
 	"github.com/dailyburn/ratchet/logger"
 	"github.com/dailyburn/ratchet/processors"
 
-	procs "github.com/samuelhug/ratchet_processors"
+	procs "github.com/cwarden/ratchet_processors"
 	"github.com/cwarden/ratchetforce"
 )
 
